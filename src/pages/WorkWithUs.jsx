@@ -2,6 +2,8 @@ import { useState } from 'react'
 import { useScrollAnimation } from '../hooks/useScrollAnimation'
 import SectionLabel from '../components/SectionLabel'
 
+const GHL_WEBHOOK = 'https://services.leadconnectorhq.com/hooks/4He040gan4a0TjwZJN6N/webhook-trigger/43f907b6-0f0c-48bb-a212-21e47169baff'
+
 function AnimatedSection({ children, className = '', delay = 0 }) {
   const [ref, isVisible] = useScrollAnimation()
   return (
@@ -23,8 +25,11 @@ const revenueOptions = [
   '$50k+',
 ]
 
+const inputClass = "w-full bg-[#0d0d0d] border border-[#1a1a1a] px-5 py-4 text-sm text-white placeholder-white/20 focus:border-brand-red/50 focus:outline-none transition-colors"
+
 export default function WorkWithUs() {
   const [submitted, setSubmitted] = useState(false)
+  const [loading, setLoading] = useState(false)
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
@@ -40,8 +45,32 @@ export default function WorkWithUs() {
     setFormData({ ...formData, [e.target.name]: e.target.value })
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
+    setLoading(true)
+
+    const payload = {
+      fullName: formData.fullName,
+      email: formData.email,
+      phone: formData.phone,
+      niche: formData.whatYouTeach,
+      revenue: formData.revenue,
+      challenge: formData.biggestChallenge,
+      differentiator: formData.whatMakesYouDifferent,
+      referral: formData.howDidYouHear,
+    }
+
+    try {
+      await fetch(GHL_WEBHOOK, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      })
+    } catch (err) {
+      console.error('GHL webhook error:', err)
+    }
+
+    setLoading(false)
     setSubmitted(true)
   }
 
@@ -58,7 +87,7 @@ export default function WorkWithUs() {
               <span className="text-brand-red">LEVRG AI</span>
             </h1>
             <p className="text-white/50 text-base md:text-lg max-w-xl mx-auto leading-relaxed">
-              We are selective. We only work with coaches and educators who actually deliver real results for their clients. If that is you, fill out the form below.
+              We are selective. We only work with coaches and educators who get real results for their clients. If that is you, fill out the form below.
             </p>
           </AnimatedSection>
         </div>
@@ -69,13 +98,13 @@ export default function WorkWithUs() {
         <div className="max-w-2xl mx-auto px-6">
           {submitted ? (
             <AnimatedSection>
-              <div className="card p-10 md:p-14 text-center border-brand-red/30">
+              <div className="card p-10 md:p-14 text-center border border-brand-red/30">
                 <div className="w-16 h-16 bg-brand-red/20 flex items-center justify-center mx-auto mb-6">
                   <span className="text-brand-red text-3xl">&#10003;</span>
                 </div>
                 <h2 className="text-2xl font-black uppercase tracking-wider mb-4">Application Received</h2>
                 <p className="text-white/50 text-sm leading-relaxed max-w-md mx-auto">
-                  We received your application. If you are a good fit we will be in touch within 24 hours.
+                  We got your application. If you are a good fit we will be in touch within 24 hours.
                 </p>
                 <p className="text-white/30 text-xs mt-6 uppercase tracking-wider">
                   We only take on clients we are confident we can get results for.
@@ -96,7 +125,7 @@ export default function WorkWithUs() {
                     required
                     value={formData.fullName}
                     onChange={handleChange}
-                    className="w-full bg-card border border-card-border px-5 py-4 text-sm text-white placeholder-white/20 focus:border-brand-red/50 focus:outline-none transition-colors"
+                    className={inputClass}
                     placeholder="Your full name"
                   />
                 </div>
@@ -112,7 +141,7 @@ export default function WorkWithUs() {
                     required
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full bg-card border border-card-border px-5 py-4 text-sm text-white placeholder-white/20 focus:border-brand-red/50 focus:outline-none transition-colors"
+                    className={inputClass}
                     placeholder="your@email.com"
                   />
                 </div>
@@ -128,7 +157,7 @@ export default function WorkWithUs() {
                     required
                     value={formData.phone}
                     onChange={handleChange}
-                    className="w-full bg-card border border-card-border px-5 py-4 text-sm text-white placeholder-white/20 focus:border-brand-red/50 focus:outline-none transition-colors"
+                    className={inputClass}
                     placeholder="(555) 123-4567"
                   />
                 </div>
@@ -144,7 +173,7 @@ export default function WorkWithUs() {
                     required
                     value={formData.whatYouTeach}
                     onChange={handleChange}
-                    className="w-full bg-card border border-card-border px-5 py-4 text-sm text-white placeholder-white/20 focus:border-brand-red/50 focus:outline-none transition-colors"
+                    className={inputClass}
                     placeholder="e.g. Business coaching, fitness, real estate education..."
                   />
                 </div>
@@ -159,7 +188,7 @@ export default function WorkWithUs() {
                     required
                     value={formData.revenue}
                     onChange={handleChange}
-                    className="w-full bg-card border border-card-border px-5 py-4 text-sm text-white focus:border-brand-red/50 focus:outline-none transition-colors appearance-none cursor-pointer"
+                    className={`${inputClass} appearance-none cursor-pointer`}
                   >
                     <option value="" disabled>Select your revenue range</option>
                     {revenueOptions.map((opt) => (
@@ -179,8 +208,8 @@ export default function WorkWithUs() {
                     value={formData.biggestChallenge}
                     onChange={handleChange}
                     rows={4}
-                    className="w-full bg-card border border-card-border px-5 py-4 text-sm text-white placeholder-white/20 focus:border-brand-red/50 focus:outline-none transition-colors resize-none"
-                    placeholder="What is the #1 thing holding you back from scaling?"
+                    className={`${inputClass} resize-none`}
+                    placeholder="What is the number one thing holding you back from scaling?"
                   />
                 </div>
 
@@ -195,8 +224,8 @@ export default function WorkWithUs() {
                     value={formData.whatMakesYouDifferent}
                     onChange={handleChange}
                     rows={4}
-                    className="w-full bg-card border border-card-border px-5 py-4 text-sm text-white placeholder-white/20 focus:border-brand-red/50 focus:outline-none transition-colors resize-none"
-                    placeholder="What results do your clients get? Why should someone choose you?"
+                    className={`${inputClass} resize-none`}
+                    placeholder="What results do your clients get? Why should someone choose you over everyone else?"
                   />
                 </div>
 
@@ -210,7 +239,7 @@ export default function WorkWithUs() {
                     name="howDidYouHear"
                     value={formData.howDidYouHear}
                     onChange={handleChange}
-                    className="w-full bg-card border border-card-border px-5 py-4 text-sm text-white placeholder-white/20 focus:border-brand-red/50 focus:outline-none transition-colors"
+                    className={inputClass}
                     placeholder="Social media, referral, ad, etc."
                   />
                 </div>
@@ -218,9 +247,10 @@ export default function WorkWithUs() {
                 {/* Submit */}
                 <button
                   type="submit"
-                  className="w-full btn-primary text-sm py-5 pulse-glow mt-4"
+                  disabled={loading}
+                  className="w-full btn-primary text-sm py-5 pulse-glow mt-4 disabled:opacity-60 disabled:cursor-not-allowed"
                 >
-                  Submit Application
+                  {loading ? 'Submitting...' : 'Submit Application'}
                 </button>
 
                 <p className="text-white/20 text-xs text-center mt-4">

@@ -9,7 +9,6 @@ export default function CTASection({
 
   return (
     <section ref={ref} className="relative py-24 md:py-32 overflow-hidden">
-      {/* Background glow */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
         <div className="w-[600px] h-[600px] bg-brand-red/10 rounded-full blur-[120px]" />
       </div>

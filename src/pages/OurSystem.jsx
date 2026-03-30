@@ -22,7 +22,7 @@ function SystemSection({ number, title, subtitle, paragraphs, bullets, reverse =
       ref={ref}
       className={`py-20 md:py-28 border-t border-white/5 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}
     >
-      <div className={`max-w-6xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${reverse ? 'lg:direction-rtl' : ''}`}>
+      <div className={`max-w-6xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center`}>
         {/* Number side */}
         <div className={`flex items-center justify-center ${reverse ? 'lg:order-2' : ''}`}>
           <div className="relative">
@@ -72,7 +72,7 @@ export default function OurSystem() {
               <span className="text-brand-red">Scale Your Business</span>
             </h1>
             <p className="text-white/50 text-lg max-w-2xl mx-auto leading-relaxed">
-              We do not just run ads. We build the entire client acquisition machine — from offer positioning to close — and manage it for you.
+              We do not just run ads. We build the entire client acquisition machine from offer positioning to close and manage it for you.
             </p>
           </AnimatedSection>
         </div>
@@ -82,18 +82,18 @@ export default function OurSystem() {
       <SystemSection
         number="01"
         subtitle="Step One"
-        title="Offer Positioning & Consulting"
+        title="Offer Positioning And Consulting"
         paragraphs={[
-          "Before we ever run a single ad or build a single funnel, we start here. Because nothing else matters if your offer is not dialed in.",
-          "Most coaches have a good offer but it is not positioned correctly. It does not speak directly to their dream client's deepest pain points. It does not make the decision to buy feel obvious. We fix that.",
-          "We work with you to identify exactly who your ideal client is — what they want, what they fear, what their objections are, and what would make your offer feel like a no-brainer. Then we position your offer so compellingly that it would be stupid for your dream client not to buy.",
+          "Before we run a single ad or build a single funnel, we start here. Everything else is a waste if your offer is not dialed in.",
+          "Most coaches have a decent offer. But decent is not enough. If your messaging is vague, if it does not speak directly to what your ideal client is lying awake thinking about at night, they scroll past. We fix that.",
+          "We get inside the head of your ideal client. What do they want? What are they scared of? What have they already tried? What would make them say this is exactly what I need? Then we rebuild your positioning around that. By the time we are done, your offer is a no-brainer.",
         ]}
         bullets={[
-          "Deep-dive ideal client avatar research",
+          "Ideal client research and avatar build-out",
           "Offer messaging and positioning overhaul",
-          "Objection mapping and pre-handling",
-          "Pricing strategy alignment",
-          "Competitive positioning analysis",
+          "Objection mapping. We pre-handle every reason they would say no.",
+          "Pricing strategy that makes sense for your market",
+          "Competitive positioning so you stand out",
         ]}
       />
 
@@ -102,9 +102,9 @@ export default function OurSystem() {
         subtitle="Step Two"
         title="Client Acquisition"
         paragraphs={[
-          "Once your offer is dialed in, we deploy a proven done-for-you client acquisition system to get it in front of your ideal clients at scale.",
-          "This is not a course on how to run ads. This is not a template you fill out yourself. We build and manage the entire system for you — so your pipeline fills up with qualified prospects who are ready to buy.",
-          "We handle the strategy, the creative, the targeting, the funnels, and the optimization. You focus on delivering results for your clients.",
+          "With your offer locked in, we go get you clients. Done for you. We build the campaigns, write the ads, set up the funnels, and manage everything.",
+          "This is not a course. This is not a template. We do the work. Your calendar fills up with qualified calls from people who actually want what you sell.",
+          "We handle the strategy, the creative, the targeting, and the optimization. You focus on showing up to the calls and delivering results.",
         ]}
         bullets={[
           "Full done-for-you ad campaign management",
@@ -121,15 +121,15 @@ export default function OurSystem() {
         subtitle="Step Three"
         title="Backend Systems"
         paragraphs={[
-          "Most coaches are leaking money and they do not even know it. Leads come in but there is no system to capture, nurture, and convert them. Leads fall through the cracks. Deals go cold. Revenue gets left on the table.",
-          "We build out the full backend infrastructure so that every single lead is tracked, followed up with, and moved through your pipeline automatically.",
+          "Most coaches are leaking money on the backend and they do not even know it. Leads come in but there is no system to catch them. No CRM, no follow-up, no pipeline structure. Leads go cold and deals die on the vine.",
+          "We build it all out. Every lead gets captured, tagged, and followed up with automatically. Nothing falls through the cracks.",
         ]}
         bullets={[
           "Full CRM setup and configuration",
-          "Automated follow-up sequences (email + SMS)",
+          "Automated follow-up sequences via email and SMS",
           "Pipeline management and lead tracking",
           "Booking system and calendar integration",
-          "Automated nurture campaigns for cold leads",
+          "Automated nurture campaigns for leads that go cold",
         ]}
       />
 
@@ -138,16 +138,16 @@ export default function OurSystem() {
         subtitle="Step Four"
         title="Maximize Lifetime Value"
         paragraphs={[
-          "Getting a new client is only the beginning. The real money — and the real impact — comes from maximizing the lifetime value of every customer you close.",
-          "Most coaches are leaving massive amounts of revenue on the table because they have no ascension strategy, no retention systems, and no way to continue delivering value after the first purchase.",
-          "We help you build out ascension offers, retention systems, and backend automation so that every client you close becomes more valuable over time.",
+          "Getting a client is great. Keeping them and getting them to buy more is where the real money is.",
+          "Most coaches are so focused on getting new clients that they completely ignore the people already in their ecosystem. That is a massive mistake. One great client who stays for a year and buys your next offer is worth ten one-time buyers.",
+          "We help you build the systems to retain clients, move them up to higher-ticket offers, and turn your existing base into a growth engine.",
         ]}
         bullets={[
           "Ascension offer strategy and creation",
           "Client retention and engagement systems",
           "Upsell and cross-sell automation",
           "Referral system implementation",
-          "Lifetime value tracking and optimization",
+          "Lifetime value tracking and reporting",
         ]}
         reverse
       />

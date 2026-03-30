@@ -29,7 +29,7 @@ export default function About() {
               <span className="text-brand-red">Make Info Great Again</span>
             </h1>
             <p className="text-white/50 text-lg max-w-2xl mx-auto leading-relaxed">
-              The information industry is broken. We are here to fix it — one real business at a time.
+              The information industry is broken. We are here to fix it, one real business at a time.
             </p>
           </AnimatedSection>
         </div>
@@ -60,7 +60,7 @@ export default function About() {
 
             <AnimatedSection delay={200}>
               <p>
-                Suddenly everyone was a guru. Screenshots got faked. Lambos got rented. Testimonials got manufactured. People with zero real results started selling courses on how to get results they never actually achieved. Buyers got burned. Trust collapsed. The entire industry got a bad name.
+                Suddenly everyone was a guru. Screenshots got faked. Lambos got rented. Testimonials got manufactured. People with zero real results started selling courses on how to get results they never actually achieved. Buyers got burned. Trust collapsed. The whole industry got a bad name.
               </p>
             </AnimatedSection>
 
@@ -81,7 +81,7 @@ export default function About() {
             <h2 className="section-heading mb-4">
               <span className="text-brand-red">Elias Chavez</span>
             </h2>
-            <p className="text-white/40 text-sm uppercase tracking-[0.2em]">Founder & CEO of LEVRG AI</p>
+            <p className="text-white/40 text-sm uppercase tracking-[0.2em]">Founder and CEO of LEVRG AI</p>
           </AnimatedSection>
 
           <AnimatedSection>
@@ -90,7 +90,7 @@ export default function About() {
                 Elias Chavez is a 19-year-old entrepreneur who started LEVRG AI because he saw something rare being destroyed.
               </p>
               <p>
-                He grew up watching the information industry evolve — from a space where real mentors built real empires on real results, to a wasteland of rented Lambos, manufactured testimonials, and zero accountability. He himself got burned by it.
+                He grew up watching the information industry go from a space where real mentors built real empires on real results, to a wasteland of rented Lambos, manufactured testimonials, and zero accountability. He got burned by it himself. More than once.
               </p>
               <p>
                 He believes the world needs better education. Not a university system that cannot keep up with how fast things are changing. And not a guru industry selling dreams with nothing underneath.
@@ -99,7 +99,7 @@ export default function About() {
                 LEVRG AI exists to fix that.
               </p>
               <p>
-                To work exclusively with coaches and educators who actually deliver. To help them scale. And to prove that integrity and impact are not mutually exclusive.
+                We work exclusively with coaches and educators who actually deliver. We help them scale. And we prove every day that integrity and impact are not mutually exclusive.
               </p>
             </div>
           </AnimatedSection>
@@ -120,15 +120,15 @@ export default function About() {
             {[
               {
                 title: 'Integrity Over Revenue',
-                description: 'We turn down clients who do not deliver real results. We would rather make less money than contribute to the problem.',
+                description: 'We turn down clients who do not deliver real results. We would rather make less money than contribute to the problem we are trying to fix.',
               },
               {
                 title: 'Results Over Promises',
-                description: 'We do not sell dreams. We build systems that produce measurable outcomes. Every decision we make is driven by what actually works.',
+                description: 'We do not sell dreams. We build systems that produce real, measurable outcomes. Every decision we make is driven by what actually works.',
               },
               {
                 title: 'Impact Over Ego',
-                description: 'This is not about us. It is about building something bigger — an industry where real educators can thrive and buyers can trust again.',
+                description: 'This is not about us. It is about building something bigger. An industry where real educators can thrive and buyers can trust again.',
               },
             ].map((item, i) => {
               const [ref, isVisible] = useScrollAnimation()
@@ -153,7 +153,8 @@ export default function About() {
         <div className="max-w-4xl mx-auto px-6">
           <AnimatedSection className="text-center mb-12">
             <h2 className="section-heading">
-              Who We Work With — And Who We <span className="text-brand-red">Do Not</span>
+              Who We Work With.{' '}
+              <span className="text-brand-red">And Who We Don't.</span>
             </h2>
           </AnimatedSection>
 
@@ -166,7 +167,7 @@ export default function About() {
                     "Coaches and educators with a proven offer",
                     "People who get real, measurable results for their clients",
                     "Business owners serious about scaling with integrity",
-                    "People ready to invest in systems — not shortcuts",
+                    "People ready to invest in systems, not shortcuts",
                   ].map((item, i) => (
                     <li key={i} className="flex gap-3 items-start">
                       <span className="text-brand-red text-sm mt-0.5">&#10003;</span>

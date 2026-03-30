@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 
-export function useScrollAnimation(threshold = 0.1) {
+export function useScrollAnimation() {
   const ref = useRef(null)
   const [isVisible, setIsVisible] = useState(false)
 
@@ -8,40 +8,51 @@ export function useScrollAnimation(threshold = 0.1) {
     const el = ref.current
     if (!el) return
 
-    // Check if element is already in viewport on mount
-    const rect = el.getBoundingClientRect()
-    if (rect.top < window.innerHeight && rect.bottom > 0) {
+    let done = false
+    const show = () => {
+      if (done) return
+      done = true
       setIsVisible(true)
+    }
+
+    // Check immediately — element may already be in view on mount
+    const check = () => {
+      const rect = el.getBoundingClientRect()
+      return rect.top < window.innerHeight + 120 && rect.bottom > -120
+    }
+
+    if (check()) {
+      show()
       return
     }
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true)
-          observer.unobserve(entry.target)
-        }
-      },
-      { threshold, rootMargin: '50px' }
-    )
-
-    observer.observe(el)
-
-    // Also listen for scroll to catch any missed intersections
-    const handleScroll = () => {
-      const r = el.getBoundingClientRect()
-      if (r.top < window.innerHeight + 50 && r.bottom > -50) {
-        setIsVisible(true)
-        window.removeEventListener('scroll', handleScroll)
-      }
+    // Intersection Observer (primary trigger)
+    let observer = null
+    if (typeof IntersectionObserver !== 'undefined') {
+      observer = new IntersectionObserver(
+        (entries) => {
+          if (entries[0].isIntersecting) show()
+        },
+        { threshold: 0, rootMargin: '120px 0px 120px 0px' }
+      )
+      observer.observe(el)
     }
-    window.addEventListener('scroll', handleScroll, { passive: true })
+
+    // Scroll listener (secondary fallback — catches IO misses)
+    const onScroll = () => {
+      if (check()) show()
+    }
+    window.addEventListener('scroll', onScroll, { passive: true })
+
+    // Hard timeout — nothing stays invisible forever
+    const timer = setTimeout(show, 1200)
 
     return () => {
-      observer.disconnect()
-      window.removeEventListener('scroll', handleScroll)
+      observer?.disconnect()
+      window.removeEventListener('scroll', onScroll)
+      clearTimeout(timer)
     }
-  }, [threshold])
+  }, [])
 
   return [ref, isVisible]
 }

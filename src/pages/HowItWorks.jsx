@@ -66,7 +66,7 @@ export default function HowItWorks() {
               How It <span className="text-brand-red">Works</span>
             </h1>
             <p className="text-white/50 text-lg max-w-2xl mx-auto leading-relaxed">
-              A simple three-step process to take you from stuck to scaling. No guesswork. No chaos. Just a proven system.
+              Three phases. No guesswork. No chaos. Just a proven system that takes you from stuck to scaling.
             </p>
           </AnimatedSection>
         </div>
@@ -78,41 +78,41 @@ export default function HowItWorks() {
           <ProcessStep
             number="1"
             subtitle="Phase One"
-            title="Identify & Position"
-            description="Before we touch anything else, we go deep on your offer and your market. We find out exactly who your ideal client is, what they want, what keeps them up at night, and what their objections are. Then we make your offer so dialed in and positioned so well that it would be stupid for them not to buy from you."
+            title="Identify And Position"
+            description="We start by going deep on your offer and your market. We find out exactly who your ideal client is, what they want, and why they are not buying yet. Then we make your offer so clear and compelling that not buying feels like the wrong move."
             details={[
-              "Deep-dive research into your ideal client avatar",
+              "Deep-dive research into your ideal client",
               "Full offer audit and positioning overhaul",
-              "Objection mapping — we pre-handle every reason they would say no",
+              "Objection mapping. We pre-handle every reason they would say no.",
               "Messaging framework that speaks directly to your dream client",
-              "Pricing strategy that maximizes conversions and perceived value",
+              "Pricing strategy that makes sense for your market and your goals",
             ]}
           />
 
           <ProcessStep
             number="2"
             subtitle="Phase Two"
-            title="Deploy & Acquire"
-            description="Once your offer is dialed in, we deploy a proven client acquisition system to get it in front of your dream clients at scale. We build the funnels, run the ads, and fill your pipeline with qualified calls — all done for you."
+            title="Deploy And Acquire"
+            description="Once your offer is locked in, we deploy a client acquisition system to get it in front of your dream clients at scale. We build the funnels, run the ads, and fill your pipeline with qualified calls. All done for you."
             details={[
               "Full ad campaign strategy, build-out, and launch",
-              "Creative production — ads that stop the scroll and convert",
-              "Funnel design and build — optimized for your specific offer",
+              "Creative production. Ads that stop the scroll and actually convert.",
+              "Funnel design and build, optimized for your specific offer",
               "Targeting strategy to reach your dream clients",
               "Daily monitoring, split-testing, and optimization",
-              "Pipeline fills up with qualified prospects who are ready to buy",
+              "Qualified prospects showing up on your calendar ready to buy",
             ]}
           />
 
           <ProcessStep
             number="3"
             subtitle="Phase Three"
-            title="Nurture, Close & Scale"
-            description="Getting leads is just the start. We help you close your dream clients, then maximize their lifetime value through ascension offers, retention systems, and backend automation. You scale without chaos."
+            title="Nurture, Close, And Scale"
+            description="Getting leads is just the start. We help you close more of them, then build out the backend so your clients stay longer, spend more, and refer others. You grow without burning out."
             details={[
-              "CRM and pipeline management — every lead is tracked and followed up with",
+              "CRM and pipeline management. Every lead is tracked and followed up with.",
               "Automated follow-up sequences so no lead goes cold",
-              "Sales process optimization to increase close rates",
+              "Sales process refinement to increase your close rate",
               "Ascension offer strategy to increase lifetime value",
               "Retention systems to keep clients longer",
               "Backend automation so you scale without the chaos",
@@ -131,7 +131,7 @@ export default function HowItWorks() {
               This Is Not Another <span className="text-brand-red">Course Or Program</span>
             </h2>
             <p className="text-white/50 text-base max-w-2xl mx-auto">
-              This is a done-for-you system. We do not hand you a playbook and wish you luck. We build it, deploy it, and manage it — so you can focus on what you do best: delivering results for your clients.
+              This is a done-for-you system. We do not hand you a playbook and wish you luck. We build it, deploy it, and manage it so you can focus on what you do best.
             </p>
           </AnimatedSection>
 
@@ -141,11 +141,11 @@ export default function HowItWorks() {
                 <h3 className="text-sm font-bold uppercase tracking-[0.15em] mb-4 text-brand-red">What You Get</h3>
                 <ul className="space-y-3">
                   {[
-                    "Done-for-you client acquisition system",
+                    "A done-for-you client acquisition system",
                     "Offer positioning and consulting",
                     "Full backend build-out and automation",
-                    "Pipeline filled with qualified calls",
-                    "Ongoing optimization and scaling",
+                    "A pipeline filled with qualified calls",
+                    "Ongoing optimization as you scale",
                   ].map((item, i) => (
                     <li key={i} className="flex gap-3 items-start">
                       <span className="text-brand-red text-sm mt-0.5">&#10003;</span>
@@ -160,9 +160,9 @@ export default function HowItWorks() {
                   {[
                     "A course you watch and figure out yourself",
                     "A template pack with no support",
-                    "A generic agency that takes anyone",
+                    "A generic agency that takes anyone who applies",
                     "A get-rich-quick scheme",
-                    "Another guru selling dreams",
+                    "Another guru selling dreams with nothing behind them",
                   ].map((item, i) => (
                     <li key={i} className="flex gap-3 items-start">
                       <span className="text-white/30 text-sm mt-0.5">&#10007;</span>
